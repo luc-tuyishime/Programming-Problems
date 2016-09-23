@@ -122,8 +122,7 @@ var randomNumber = (Math.floor((Math.random() * 100)));
 console.log("the number is " + randomNumber);
 console.log(randPrint(randomNumber));
 
-// Generate a single random number, from 0 to 100. If the number is greater than 40 then output all the odd integers from
-// 40 to the random number. If the number is less than 40, output all the odd integers from 0 to 40.
+//Generate a single random number, from 0 to 100. If the number is greater than 40 then output all the odd integers from 40 to the random number. If the number is less than 40, output all the odd integers from 0 to 40.
 function generateList(randNum){
   list = [];
   if(randNum > 40){
@@ -145,3 +144,107 @@ function generateList(randNum){
 var randNum = (Math.floor((Math.random()*100)));
 console.log('the number is ' + randNum);
 console.log(generateList(randNum));
+
+//Generate a single random number, from 0 to 100. If the number is greater than 40 then output all the odd integers from that number down to 40. If the number is less than 40, output all the odd integers from that number down to 0.
+function generateList(randNum){
+  var greaterThan = [];
+  var lessThan = [];
+  if(num > 40){
+    for(var i = 40; i<= 40 ; i++){
+      if(i % 2!== 0){
+      greaterThan.push(i);
+    }
+  }
+
+  return greaterThan.reverse();
+
+  }
+else {
+  for(var j = 1; j<=40 ;j++){
+    if(j % 2!== 0){
+    lessThan.push(j);
+   }
+ }
+ return lessThan.reverse();
+  }
+}
+
+var num = (Math.floor((Math.random()*100)));
+console.log('the number is ' + num);
+console.log(generateList(num));
+
+//Discount Percentage: Write a function that takes a dollar amount and a discount percentage and returns the total discount amount. Return a warning if the discount amount is greater than 100 or less that 0 percent. Test the results.
+
+function discount(totalAmount, discountPecentage){
+  if (discountPecentage > 100 || discountPecentage < 0){
+    return "that discount is not acceptable";
+  }
+  return totalAmount * (discountPecentage * 0.01);
+}
+
+console.log(discount(100,10) === 10);
+console.log(discount(100,100) === 100);
+console.log(discount(100,0) === 0);
+
+console.log(discount(100, 101) === "that discount is not acceptable");
+console.log(discount(100, -1) === "that discount is not acceptable");
+
+//  Generate n random integers from 0 to 100, then output them in ascending order.
+rand_nums = []
+var generate_random = function (num){
+  for(var i=1; i<= num ;i++){
+    rand_nums.push(Math.floor((Math.random()*100)));
+  }
+  document.write(rand_nums.sort() + "<br/>")
+}
+generate_random(10)
+rand_nums = []
+generate_random(20)
+rand_nums = []
+generate_random(5)
+
+// Write a program that calculates and shows the value of (x to the nth power). Let both integers fall within the range of 2 through 20.
+var calculatePower = function (num1, num2){
+  for(var i = 1 ; i < num2 ; i++){
+    (total *= num1);
+  }
+  return total;
+}
+total = 1
+rand1 = Math.floor((Math.random()*20))
+rand2 = Math.floor((Math.random()*20))
+document.write(" what is " +   rand1.toString() +" to the " + rand2.toString() +" power?<br\>")
+document.write("answer: " + calculatePower(rand1, rand2))
+
+//Triangle: Write a function that takes a single number as an input and returns that many lines. On the first line there is one '#' character. On the second there are two. And so on. This will create a nice triangle.
+function createTriangle(num){
+  var line = '';
+
+  for(i = 0; i< num; i++){
+    line += "*";
+    console.log(line);
+  }
+}
+console.log(createTriangle(10));
+
+//Write a function that takes two random 10-character strings as arguments, which returns True when the first string starts with the first two characters in the second string - and false otherwise.
+function random_string(num) {
+    text = "";
+    letters = "abcdefghijklmnopqrstuvwxyz";
+    for( var i=0; i <= num; i++ )
+        text += letters.charAt(Math.floor(Math.random() * letters.length));
+    return text;
+}
+
+function char_test(string1, string2) {
+	if (string1[0,1] === string2[0,1]) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+rand_string1 = random_string(10)
+rand_string2 = random_string(10)
+document.write("The strings are " + rand_string1 + " and " + rand_string2 + "<br>")
+document.write(char_test(rand_string1, rand_string2))
