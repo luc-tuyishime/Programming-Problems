@@ -110,7 +110,7 @@ console.log('the min number is ' +minNumber);
 //Generate a single random number, from 0 to 100, then output all the even integers from 0 to the random number.
 var randPrint = function(randomNumber){
   var list = [];
-  for (var i=1;i<=randomNumber;i++){
+  for (var i=1; i<=randomNumber; i++){
     if( i % 2 === 0){
       list.push(i);
     }
@@ -121,3 +121,27 @@ var randPrint = function(randomNumber){
 var randomNumber = (Math.floor((Math.random() * 100)));
 console.log("the number is " + randomNumber);
 console.log(randPrint(randomNumber));
+
+// Generate a single random number, from 0 to 100. If the number is greater than 40 then output all the odd integers from
+// 40 to the random number. If the number is less than 40, output all the odd integers from 0 to 40.
+function generateList(randNum){
+  list = [];
+  if(randNum > 40){
+    for(var i = 40; i <= randNum; i++){
+      if(i % 2 !== 0){
+        list.push(i);
+      }
+    }
+  }else {
+    for (j = 1; j < 40 ; j++){
+      if(i % 2 !== 0){
+        list.push(j);
+      }
+    }
+  }
+  return list;
+}
+
+var randNum = (Math.floor((Math.random()*100)));
+console.log('the number is ' + randNum);
+console.log(generateList(randNum));
