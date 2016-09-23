@@ -105,3 +105,19 @@ console.log('the max number is' + maxNumber);
 
 var minNumber = getMin(list);
 console.log('the min number is ' +minNumber);
+
+
+//Generate a single random number, from 0 to 100, then output all the even integers from 0 to the random number.
+var randPrint = function(randomNumber){
+  var list = [];
+  for (var i=1;i<=randomNumber;i++){
+    if( i % 2 === 0){
+      list.push(i);
+    }
+  }
+  return list;
+};
+
+var randomNumber = (Math.floor((Math.random() * 100)));
+console.log("the number is " + randomNumber);
+console.log(randPrint(randomNumber));
