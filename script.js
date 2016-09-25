@@ -248,3 +248,58 @@ rand_string1 = random_string(10)
 rand_string2 = random_string(10)
 document.write("The strings are " + rand_string1 + " and " + rand_string2 + "<br>")
 document.write(char_test(rand_string1, rand_string2))
+
+
+//Write a function that takes a paragraph as an argument and returns an array that contains each string as an element.
+function paragraph_to_array(paragraph){
+  return paragraph.split(" ");
+}
+document.write(paragraph_to_array("Non sint quinoa fanny pack. Tousled kogi qui ironic mixtape organic sunt Bushwick retro plaid tonx iPhone authentic Truffaut chillwave trust fund flannel leggings messenger bag banjo eiusmod synth Cosby sweater sapiente pour-over"))
+
+//Create a simple webpage that includes three tags, an <h1>, <h2> and <p>, then using jQuery, create an alert that outputs the tag name when you click on the tag.
+$(document).ready(function() {
+ $("h1").click(function() {
+   alert("This is a header.");
+ });
+
+ $("h2").click(function() {
+   alert("This is a sub header");
+ });
+
+ $("p").click(function() {
+   alert("This is a paragraph.");
+ });
+});
+
+//Write a function that takes an object/hash/dictionary of people (keys) and their subsequent ages as its argument, and then it returns the name of the oldest living person.
+function key_with_max_val(hash){
+  var max = -Infinity;
+  for (x in hash){
+    if(hash[x] > max){
+      max = hash[x];
+    }
+  }
+  return max;
+}
+var people = {'mike':27, 'jack':12, 'luc':34, 'pierre':50, 'paul':33}
+console.log('the oldest person is ' +(key_with_max_val(people)))
+
+//Reverse: Write a function that takes a string as an argument and returns the string in reversed order. Test if the string is the same reversed (Palindrome).
+ function reverse(){
+   return string.split('').reverse().join('');
+ }
+ var string = 'hi i am a random string.';
+ console.log(reverse(string));
+
+ //Factorial: Write a function that takes a random number as an argument and then returns the factorial of that given number.
+function factorial(num){
+  total = 1 ;
+  for(var i = 1; i<= num; i++ ){
+    total *= 1;
+  }
+  return total
+}
+var rand_num = (Math.floor((Math.random()*10)))
+document.write("the factorial of " + rand_num + "is" + factorial(rand_num))
+
+//Longest Word: Write a function that takes a string and returns the longest word in the string
