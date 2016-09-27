@@ -36,3 +36,26 @@ console.log(getPalindromes(str, result) === 'd racecar d');
 var result = '';
 var str2 = 'wow racecar wow'
 console.log(getPalindromes(str2,result) === 'wow racecar wow');
+
+
+// helpers
+function splitString(str) {
+  return str.split(' ');
+}
+
+function getPalindromes(arr) {
+  return arr.filter(function(str) {
+    return str === splitString(str).reverse().join('');
+  });
+}
+
+// main
+function getLongestPalindrome(str) {
+  strArray = splitString(str);
+  palindromeArr = getPalindromes(strArray);
+  return palindromeArr.reduce(function (previous, current) {
+    return current.length > previous.length ? current : previous;
+  }, '');
+}
+
+console.log(getLongestPalindrome("d racecar anna") === "racecar");
