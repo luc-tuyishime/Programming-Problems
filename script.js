@@ -247,14 +247,14 @@ function char_test(string1, string2) {
 rand_string1 = random_string(10)
 rand_string2 = random_string(10)
 document.write("The strings are " + rand_string1 + " and " + rand_string2 + "<br>")
-document.write(char_test(rand_string1, rand_string2))
+document.write(char_test(rand_string1, rand_string2)+"<br>")
 
 
 //Write a function that takes a paragraph as an argument and returns an array that contains each string as an element.
 function paragraph_to_array(paragraph){
   return paragraph.split(" ");
 }
-document.write(paragraph_to_array("Non sint quinoa fanny pack. Tousled kogi qui ironic mixtape organic sunt Bushwick retro plaid tonx iPhone authentic Truffaut chillwave trust fund flannel leggings messenger bag banjo eiusmod synth Cosby sweater sapiente pour-over"))
+document.write(paragraph_to_array("Non sint quinoa fanny pack. Tousled kogi qui ironic mixtape organic sunt Bushwick retro plaid tonx iPhone authentic Truffaut chillwave trust fund flannel leggings messenger bag banjo eiusmod synth Cosby sweater sapiente pour-over")+"<br>")
 
 //Create a simple webpage that includes three tags, an <h1>, <h2> and <p>, then using jQuery, create an alert that outputs the tag name when you click on the tag.
 $(document).ready(function() {
@@ -282,7 +282,7 @@ function key_with_max_val(hash){
   return max;
 }
 var people = {'mike':27, 'jack':12, 'luc':34, 'pierre':50, 'paul':33}
-console.log('the oldest person is ' +(key_with_max_val(people)))
+console.log('the oldest person is ' +(key_with_max_val(people))+"<br>")
 
 //Reverse: Write a function that takes a string as an argument and returns the string in reversed order. Test if the string is the same reversed (Palindrome).
  function reverse(){
@@ -300,6 +300,205 @@ function factorial(num){
   return total
 }
 var rand_num = (Math.floor((Math.random()*10)))
-document.write("the factorial of " + rand_num + "is" + factorial(rand_num))
+document.write("the factorial of " + rand_num + "is" + factorial(rand_num)+"<br>")
 
 //Longest Word: Write a function that takes a string and returns the longest word in the string
+function longest_word(str){
+  array = str.split(" ");
+  max = " ";
+  for(i = 0; i < array.length; i++){
+    if(array[i].length > max.length){
+      max = array[i];
+    }
+  }
+  return max;
+}
+
+var string = "I am fffffffffffdddslsssss a sffff sdsdsssssssss";
+document.write("the longest word is" + (longest_word(string))+"<br>")
+
+//Longest Word 2: Refactor the "Longest Word" function so that it ignores punctuation.
+function remove_punct(str){
+  return str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+}
+function longest_wordd(str){
+  array = str.split(" ");
+  max = " ";
+  for(i = 0;i < array.length; i++){
+    if(array[i].length > max.length){
+      max = array[i];
+    }
+  }
+  return max;
+}
+var string = "i am $$$$$$$$$$ffjrkfrffff a fdhddddddddd&&&&&& fjkefjrifjrefro";
+document.write("the longest string is " + remove_punct(longest_wordd(string))+"<br>")
+
+//Time Difference: Write a function that takes two times in hours and minutes and returns the difference.
+// function time_difference(s,e){
+//   return (e - s)/1000 //sec
+// }
+//
+//  var start = new date(2013, 0, 9, 10);
+//  var end = new date(2013, 0, 1, 17, 10);
+//
+//  var dif = time_difference(start,end)
+
+//Time Convert: Write a function that takes an integer then returns the number in hours and minutes. For example, 63 should return 1:3.
+function TimeConvert(num){
+  hours = Math.floor(num / 60);
+  minutes = num % 60;
+  return hours +":"+ minutes;
+}
+document.write(TimeConvert(63) + "<br>")
+document.write(TimeConvert(126) + "<br>")
+
+//Using JavaScript, create a function that handles errors. The function takes two integers as inputs and returns the result of dividing them. If the denominator is 0, throw an error.
+function divide(n1,n2){
+  try{
+    if (n2 == 0){
+      throw("divide by zero error.");
+    }else {
+      return n1 / n2
+    }
+  } catch (e){
+    alert("error: " + e)
+  }
+}
+
+var num1 = 100;
+var num2 = 2;
+console.log(divide(num1,num2))
+
+var num1 = 200;
+var num2 = 2;
+console.log(divide(num1,num2))
+
+//Using jQuery and CSS, create new .js and .css files (prob30.css and prob30.js, respectively) so that when a user clicks on a button, the background color of the page will change. Use the HTML code in the corresponding folder. You do not have to edit the file.
+
+$(function() {
+
+  $("button#red").click(function() {
+    $("body").removeClass();
+    $("body").addClass("red-background");
+  })
+
+  $("button#green").click(function() {
+    $("body").removeClass();
+    $("body").addClass("green-background");
+  })
+
+  $("button#blue").click(function() {
+    $("body").removeClass();
+    $("body").addClass("blue-background");
+  })
+
+  $("button#white").click(function() {
+    $("body").removeClass();
+  })
+})
+
+//Mad Libs: Using HTML, CSS, and jQuery, create a mad libs game. Use an HTML form to take user input. Display the results however you'd like. Get creative.
+
+//Create a simple to-do list using jQuery. Make sure the user can remove the items.
+$('form').submit(function(){
+  if($('input').val()!== ''){
+    var input_value = $('input').val();
+    $('ol').append('<li>' +input_value+ '<a href="">x</a></li>');
+  };
+  $('input').val('');
+  return false;
+});
+
+$(document).on('click','a',function(e){
+  e.preventDefault();
+  $(this).parent().remove();
+});
+
+//Write a function that takes a single string as the input then return the number of vowels the string contains. Do not count "y" as a vowel.
+
+//Xs and 0s: Create a function that takes a string of "x"s and "o"s as inputs. Return True if the number of "x"s and "o"s is even - and False otherwise.
+function exOh(str){
+  var arr = str.split('');
+  var ex = filtered(arr,'x');
+  var oh = filtered(arr,'o');
+  if(ex.length === oh.length){
+    return true;
+  }else{
+    return false;
+  }
+}
+function filtered(arr, value){
+  return arr.filter(function(char){
+    return char.toLowerCase() === value;
+  });
+}
+console.log(exOh('xooxxo'));
+console.log(exOh('xoxox'));
+console.log(exOh('xoOx'));
+
+//Write a function that takes an array of integers and returns the number of users in it. Then refactor this to use a helper function to first test whether an integer is zero or not that's called from the original function.
+function countZero(array){
+  var count = 0;
+  for(var i = 0; i < array.length ; i++){
+    array[i] === 0 ? count++ : null;
+  }
+  return count;
+}
+console.log(countZero([0,1,0,2,3]))
+console.log(countZero([0,1,0,0,0]))
+console.log(countZero([0]))
+//** refactor with a helper function */
+function countZeroHelper(array){
+  var count = 0;
+for(var i = 0; i < array.length; i++){
+  hasZeros(array[i]) === true ? count++ : null;
+}
+
+return count;
+}
+
+function hasZeros(integer){
+  integer === 0 ? true : false;
+}
+console.log(countZeroHelper([0,1,0,2,3]))
+console.log(countZeroHelper([0,1,0,0,0]))
+console.log(countZeroHelper([0]))
+
+//
+function processParagraph(paragraph){
+  var array = paragraph.split(" ")
+}
+
+//a function that takes argument And then checks the type (HTML tag) of the argument (H1, HX, or p). H1 has one "%", HX has two "%", and a p has none. Return each argument without the "&" characters as well as the type.
+
+function processParagraph(paragraph){
+  var array = paragraph.split(" ")
+  for (var i = 0; i < array.length; i++){
+    if(array[i].charAt(0) === "%" && array[i].charAt(1)){
+      return console.log("this is H1:" + paragraph.slice(("%", 2)))
+    }else if(array[i].charAt(0) === "%"){
+      return console.log("this is an HX:" + paragraph.slice(("%", 1)))
+    }else {
+      return console.log("this is a p:" + paragraph)
+    }
+  }
+}
+var p1 = "% the book of porgramming"
+var p2 = "%% the two aspects"
+var p3 = "Below the surface of the machine, the program moves. Without effort," +
+         "it expands and contracts. In great harmony, electrons scatter and" +
+          "regroup. The forms on the monitor are but ripples on the water. The " +
+           "essence stays invisibly below."
+  processParagraph(p1)
+  processParagraph(p2)
+  processParagraph(p3)
+
+  //Build a function, splitParagraph(), which, takes a paragraph string as an input, and returns an array of paragraph fragments. (do not use any punctuation)
+  function splitParagraph(string) {
+	return string.split(" ")
+}
+
+console.log(splitParagraph("happy birthday to you happy birthday to you"))
+
+//Guessing Game: Create a basic website that asks the user to input an integer from 1 to 100. When the user inputs a number, it should tell the user if the number they entered is too high, too low, or the exact number. When the game is over - e.g., when the user guesses correctly - display a "Start Over" button allowing the user to play again! Also, add a "Give Up" button, which displays the number and starts the game over. You should only have three files - index.html, main.js, and main.css. Use either jQuery or Angular for interacting with the DOM.
